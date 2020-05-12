@@ -17,20 +17,45 @@ function showEverthing() {
       console.log(
         "ID: " +
           res[i].ITEM_ID +
+          " || " +
           " Product: " +
           res[i].Product_Name +
-          "            Department Name: " +
+          " || " +
+          "     Department Name: " +
           res[i].Department_Name +
-          "              Price " +
+          " || " +
+          "     Price " +
           "$" +
           res[i].Price +
-          "            Stock Quantity " +
+          " || " +
+          "     Stock Quantity " +
           res[i].Stock_Quantity
       );
+      console.log(
+        "--------------------------------------------------------------------------------------------------------------------"
+      );
     }
-
     connection.end();
   });
-}
+};
+
+inquirer
+.prompt({   
+    type:"input",
+    name:"id",
+    message:"What is the ID of the product you want to buy?",
+    validate: function(value){
+    parseInt(value);
+});
+ 
+
+  //  {
+  //   type:"input",
+  //   name:"id",
+  //   message:"How many do you want to buy?",
+  //   validate: function(value){
+  //   parseInt(value);
+  //   } 
+
 
 showEverthing();
